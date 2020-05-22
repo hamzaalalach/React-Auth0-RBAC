@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { useAuth0 } from '../react-auth0-spa';
 import { Redirect } from 'react-router-dom';
-import Can from './Can';
+import Can from './auth/Can';
 
 const Profile = () => {
 	const { loading, user } = useAuth0();
@@ -13,7 +13,7 @@ const Profile = () => {
 	return (
 		<Can
 			user={user}
-			perform="get:actors"
+			perform="get:actors, get:movies"
 			yes={() => (
 				<Fragment>
 					<img src={user.picture} alt="Profile" />
